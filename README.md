@@ -4,91 +4,90 @@
   <img src="https://img.shields.io/badge/status-Developing-yellow" />
 </p>
 
-<h1 align="center">📡 ESP32-BLE Alarm Sistemi</h1>
+<h1 align="center">📡 ESP32-BLE Alarm System</h1>
 
-> ⚠️ **Elektrik akımına duyarlı BLE uyarı sistemi — IoT destekli mobil bildirim entegrasyonu**
-
----
-
-## 🚀 Proje Hakkında
-
-**ESP32-BLE**, herhangi bir elektrik akımı algılandığında Bluetooth Low Energy (BLE) üzerinden log mesajı göndererek, bu mesajları mobil uygulama aracılığıyla **gerçek zamanlı bildirim** olarak kullanıcıya ileten akıllı bir alarm sistemidir.
-
-Proje iki temel bileşenden oluşur:
-- 🔌 **ESP32 Gömülü Sistemi (Arduino IDE ile programlanmıştır)**
-- 📱 **Android Mobil Uygulama (Java ile geliştirilmiştir)**
+> ⚠️ **BLE-powered alert system triggered by electrical current — IoT-enabled mobile notification integration**
 
 ---
 
-## 🔌 ESP32 Donanım Yapısı
+## 🚀 About the Project
 
-ESP32, akım algılandığında BLE aracılığıyla log mesajı üretir. Örneğin, nRF Connect gibi BLE tarayıcı uygulamaları bu mesajı görebilir.
+**ESP32-BLE** is a smart alarm system that sends a Bluetooth Low Energy (BLE) log message whenever it detects electrical current. These messages are received by a mobile application and shown as **real-time notifications** to the user.
 
-- Gömülü yazılım **Arduino IDE** üzerinden ESP32’ye yüklenmiştir
-- BLE üzerinden log mesajı yayınlanır
-- Devre bağlantısı basit: akım algılandığında BLE tetiklenir
-
----
-
-## 📱 Android Uygulama
-
-Android Studio üzerinde Java ile geliştirilen uygulama, ESP32'nin gönderdiği BLE log mesajlarını dinler ve **mobil cihazda bildirim olarak gösterir.**
-
-### Teknik Detaylar:
-- **Geliştirme Ortamı:** Android Studio
-- **Programlama Dili:** Java
-- **Minimum API Seviyesi:** API 21 (Android 5.0 Lollipop)
-- **Gradle Yapılandırması:** Groovy DSL
-
-📌 *API 21, BLE teknolojisinin yaygın desteklendiği en geniş aralıktaki sürüm olduğu için başlangıç noktası olarak tercih edilmiştir.*
+The project consists of two main components:
+- 🔌 **ESP32 Embedded System** (programmed via Arduino IDE)
+- 📱 **Android Mobile Application** (developed with Java)
 
 ---
 
-## 🛠️ Şu Anda Geliştirilen Özellikler
+## 🔌 ESP32 Hardware Structure
 
-- [x] ESP32 tarafından gönderilen BLE mesajının algılanması
-- [x] Mobil cihazda lokal bildirim olarak gösterilmesi
-- [ ] **Birden fazla kullanıcıya aynı anda bildirim iletimi** *(Geliştirme aşamasında)*
+When current is detected, the ESP32 transmits a log message via BLE. This can be viewed using apps like nRF Connect.
 
----
-
-## 🎯 Kullanım Senaryoları
-
-- ⚡ Elektrik kesintisi ya da geri gelmesi uyarısı
-- 🏭 Endüstriyel sistemlerde cihaz izleme
-- 📦 Akıllı ev otomasyon sistemlerinde uyarı tetikleme
-- 👨‍🔧 Uzaktan çalışan teknisyenler için güvenlik bildirimleri
+- Firmware is written and uploaded using **Arduino IDE**
+- Sends BLE log messages upon trigger
+- Simple circuit: current detection directly triggers BLE signal
 
 ---
 
-## 🔧 Kurulum
+## 📱 Android Application
 
-### ESP32 için:
-1. Arduino IDE'yi indirip kurun
-2. ESP32 kart paketini yükleyin (Board Manager üzerinden)
-3. Gömülü kodu ESP32'ye yükleyin
+The mobile app is built with Java in Android Studio and listens for BLE messages sent by the ESP32, displaying them as **local notifications**.
 
-### Mobil Uygulama için:
-1. Android Studio ile projeyi açın
-2. `AndroidManifest.xml` içinde Bluetooth ve Bildirim izinlerini kontrol edin
-3. Gerçek cihazla test edin *(BLE, emülatörde çalışmaz)*
+### Technical Details:
+- **IDE:** Android Studio
+- **Language:** Java
+- **Minimum API Level:** API 21 (Android 5.0 Lollipop)
+- **Gradle DSL:** Groovy
 
----
-
-## 🔮 Gelecek Planlar
-
-- 🔔 Çoklu kullanıcıya eş zamanlı bildirim gönderme
-- ☁️ Firebase/MQTT gibi bulut entegrasyonları
-- 📊 BLE mesaj geçmişi kaydı ve grafiksel analiz
-- 🔐 Kullanıcı yetkilendirme sistemi
+📌 *API 21 was chosen to support a wide range of devices compatible with BLE.*
 
 ---
 
-## 🤝 Katkı Sağlamak İster misiniz?
+## 🛠️ Features Under Development
 
-Pull request'ler, öneriler ve geri bildirimler memnuniyetle karşılanır. İlgili herkes bu projeye katkı sağlayabilir.
-
+- [x] Detection of BLE messages from ESP32
+- [x] Display of messages as local notifications
+- [ ] **Simultaneous notifications to multiple users** *(In progress)*
 
 ---
 
-> **ESP32-BLE Alarm Sistemi**, donanım ve yazılımı bir araya getirerek gerçek zamanlı uyarı sistemi sunar. Bu proje, IoT'nin gücünü mobil teknolojilerle buluşturmak isteyen herkes için güçlü ve ölçeklenebilir bir başlangıçtır.
+## 🎯 Use Cases
+
+- ⚡ Power outage or restoration alerts
+- 🏭 Monitoring electrical devices in industrial systems
+- 📦 Smart home automation triggers
+- 👨‍🔧 Remote technician safety notifications
+
+---
+
+## 🔧 Setup
+
+### For ESP32:
+1. Download and install Arduino IDE
+2. Install the ESP32 board package via Board Manager
+3. Upload the embedded firmware to the ESP32
+
+### For Android App:
+1. Open the project in Android Studio
+2. Ensure necessary permissions are set in `AndroidManifest.xml` (Bluetooth, Notification)
+3. Test on a real device *(BLE does not work on emulators)*
+
+---
+
+## 🔮 Future Plans
+
+- 🔔 Push notifications to multiple users simultaneously
+- ☁️ Cloud integrations (e.g., Firebase, MQTT)
+- 📊 BLE message history logging and analysis
+- 🔐 User authentication and authorization system
+
+---
+
+## 🤝 Want to Contribute?
+
+Pull requests, suggestions, and feedback are welcome. Anyone interested is encouraged to contribute to the project.
+
+---
+
+> **ESP32-BLE Alarm System** combines hardware and software to deliver real-time alerts. It’s a scalable starting point for those looking to merge IoT technology with mobile applications.
